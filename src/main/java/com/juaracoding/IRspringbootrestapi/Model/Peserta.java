@@ -2,7 +2,7 @@ package com.juaracoding.IRspringbootrestapi.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Peserta")
+@Table(name = "IRPeserta")
 public class Peserta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
