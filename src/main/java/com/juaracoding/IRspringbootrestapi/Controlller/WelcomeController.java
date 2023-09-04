@@ -5,6 +5,8 @@ import com.juaracoding.IRspringbootrestapi.Model.Peserta;
 import com.juaracoding.IRspringbootrestapi.repo.PesertaRepo;
 import com.juaracoding.IRspringbootrestapi.util.FileUtility;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,14 +15,17 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/hello") // memudahkan konfigurasi untuk mengakses method didalam class
 public class WelcomeController {
 
+    @Value("${flag.logging}")
+    private String StrY;
     @GetMapping("/permisi")
     public String firstPage(){
-        return "welcome";
+        return "welcome " + OtherConfiguration.getFlagLogging();
     }
 
     @PostMapping("/postAddress")
@@ -62,14 +67,6 @@ public class WelcomeController {
         }
         return "Berhasil Menyimpan " + fileName;
 
-    }
-
-    @Autowired
-    PesertaRepo pesertaRepo;
-    @PostMapping("/peserta")
-    public String postData(@RequestBody Peserta peserta) {
-        pesertaRepo.save(peserta);
-        return peserta.getNama() + " berhasil ditambahkan";
     }
 
 }

@@ -1,6 +1,6 @@
 package com.juaracoding.IRspringbootrestapi.Model;
 
-public class Address {
+public class    Address {
 
     public Integer getId() {
         return id;
