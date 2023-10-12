@@ -9,9 +9,7 @@ import org.bouncycastle.util.encoders.Hex;
 
 public class Crypto {
 
-    //private static String defaultKey = "aafd12f438cae52538b479e2089ddec2f06cb58faafd12f6";
     private static String defaultKey = "aafd12f438cae52538b479e2089ddec2f06cb58faafd12f6";
-
     public static String performEncrypt(String keyText, String plainText) {
         try{
             byte[] key = Hex.decode(keyText.getBytes());
@@ -55,9 +53,16 @@ public class Crypto {
         String strToEncrypt = "sa";//put text to encrypt in here
         String encryptionResult = new Crypto().performEncrypt(strToEncrypt);
         System.out.println("Encryption Result : "+encryptionResult);
+        // KEY -> aafd12f438cae52538b479e3199ddec2f06cb58faafd12f6
+        //ENCRYPT -> 528b01943544a1dcef7a692a0628e46b ->
 
-        String strToDecrypt = "bdcc9507be280e3e5489a5dce01b42ea";//put text to decrypt in here
+        //ENCRYPT -> bdcc9507be280e3e5489a5dce01b42ea
+        //KEY -> aafd12f438cae52538b479e2089ddec2f06cb58faafd12f6
+
+        String strToDecrypt = "60b59dd5484eb55c55ae7bd463d447124380f4065bd48918d5cb640b943a564c";//put text to decrypt in here
         String decriptionResult = new Crypto().performDecrypt(strToDecrypt);
         System.out.println("Decryption Result : "+decriptionResult);
+        System.out.println("$2a$10$XpYsLMr9v96qIZMP0zxrGeJa9G9BBRiHzDjvLZvai1helpDUKmJG2".length());
+//        System.out.println("Untuk VIVO X5 DEFAULT AJA BELUM DI SET ".length());
     }
 }

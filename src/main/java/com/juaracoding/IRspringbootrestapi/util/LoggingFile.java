@@ -1,8 +1,10 @@
 package com.juaracoding.IRspringbootrestapi.util;
 
+
 import org.apache.log4j.Logger;
 
 public class LoggingFile {
+
 
     private static StringBuilder sbuilds = new StringBuilder();
     private static Logger logger = Logger.getLogger(LoggingFile.class);
@@ -19,6 +21,8 @@ public class LoggingFile {
         }
     }
     public static void exceptionStringz(String[] datax,Exception e, String flag,String addNotes) {
+
+
         if(flag.equals("y"))
         {
             sbuilds.setLength(0);

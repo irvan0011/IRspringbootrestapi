@@ -7,7 +7,6 @@ class ApiValidationError {
     private Object rejectedValue;
     private String message;
 
-
     ApiValidationError(String field, String message, Object rejectedValue, String object) {
 
         this.object = object;

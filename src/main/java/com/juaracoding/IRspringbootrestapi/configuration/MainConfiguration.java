@@ -1,7 +1,6 @@
 package com.juaracoding.IRspringbootrestapi.configuration;
-
-
 import com.juaracoding.IRspringbootrestapi.core.Crypto;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -15,8 +14,7 @@ import javax.sql.DataSource;
 public class MainConfiguration {
     @Autowired
     private Environment environment;
-
-    @Primary //anotasi primary digunakan untuk menjalankan file pertama kali ketika server dijalankan
+    @Primary
     @Bean
     public DataSource getDataSource() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
@@ -27,4 +25,18 @@ public class MainConfiguration {
         return dataSourceBuilder.build();
     }
 
+    @Bean
+    public ModelMapper modelMapper(){
+        return new ModelMapper();
+    }
+
+//    @Bean
+//    public PasswordEncoder passwordEncoder()
+//    {
+//        return NoOpPasswordEncoder.getInstance();
+//    }
+//    @Bean
+//    public BCryptPasswordEncoder passwordEncoder(){
+//        return new BCryptPasswordEncoder(10);
+//    }
 }
