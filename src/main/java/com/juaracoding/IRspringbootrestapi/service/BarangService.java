@@ -285,7 +285,7 @@ public class BarangService implements IService<Barang> {
         try
         {
             Pageable pageable = PageRequest.of(page,size, Sort.by("idBarang"));
-            if(columFirst.equals("nama"))
+            if(columFirst.equalsIgnoreCase("nama"))
             {
                 pageKategoriBarang = barangRepo.findByNamaBarangContains(pageable,valueFirst);
             }else if(columFirst.equalsIgnoreCase("deskripsi"))
